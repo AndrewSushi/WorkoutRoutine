@@ -11,14 +11,14 @@ bard = Bard(token=API_SECRET_KEY)
 
 app = Flask(__name__)
 app.app_context().push()
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///test'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///workout_routine_db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
 
 connect_db(app)
 db.create_all()
 
-app.config['SECRET_KEY'] = "I'LL NEVER TELL!!"
+app.config['SECRET_KEY'] = "WorkSushiOutRoutine"
 
 def return_question(goal, days, time, equipment):
     return f"Give me a workout plan that will make me {goal}. I can work out {days} days a week and {time} minutes each workout. I have {equipment}. Thank you."
