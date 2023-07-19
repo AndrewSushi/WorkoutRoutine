@@ -1,6 +1,7 @@
-from flask import Flask, render_template, redirect, session, flash
+from flask import Flask, render_template, redirect, session, flash, jsonify
 from flask_debugtoolbar import DebugToolbarExtension
 from sushiKey import API_SECRET_KEY
+from workout_regex import extract_json_object
 
 from models import db, connect_db, User, Routine
 from forms import UserForm, WorkoutForm
@@ -21,7 +22,10 @@ db.create_all()
 app.config['SECRET_KEY'] = "WorkSushiOutRoutine"
 
 def return_question(goal, days, time, equipment):
-    return f"Give me a workout plan that will make me {goal}. I can work out {days} days a week and {time} minutes each workout. I have {equipment}. Thank you."
+    return f"Give me a workout plan in the form of a json object that will make me {goal}. I can work out {days} days a week and {time} minutes each workout. I have {equipment}. The format of the json object is days, exercises, sets, and reps. Days will be an arrays of days that will be working out. Exercises will be an array of arrays that is the same length at the days and represent the exercises done each day. Sets and reps correlate to each of the exercises and should be formatted the same way as the exercises. Days, exercises, sets and reps should all be their own key and should be the same size as the exercises key. Thank you."
+
+def parse_response(text):
+    pass
 
 @app.route('/')
 def home():
@@ -73,5 +77,6 @@ def survey():
         time_avaliable = form.time_avaliable.data
         equipment = form.equipment.data
         answer = bard.get_answer(return_question(goal, days_per_week, time_avaliable, equipment))["content"]
-        return render_template('results.html', answer=answer)
+        workout = extract_json_object(answer)
+        return render_template('results.html', days=workout["days"], exercises=workout["exercises"], sets=workout["sets"], reps=workout["reps"])
     return render_template("survey.html", form=form)

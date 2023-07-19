@@ -3,7 +3,14 @@
 {% block content %}
 
 <p class="lead">
-    {{answer}}
+    {% for i in range(days|length) %}
+        <h3>{{days[i]}}</h3>
+        <ul>
+        {% for exercise in exercises[i] %}
+            <li>{{exercise}} - {{sets[i]}} x {{reps[i]}}</li>
+        {% endfor %}
+        </ul>
+    {% endfor %}
 </p>
 
 {% endblock %}

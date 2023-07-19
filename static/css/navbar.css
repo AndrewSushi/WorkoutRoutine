@@ -1,0 +1,60 @@
+/* html{
+    height: 2000px;
+} */
+.main-header{
+    width: 100%;
+    background: black;
+    padding: 8px 16px;
+    display: inline-block;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.main-header > div{
+    display: inline-block;
+    vertical-align: middle;
+}
+.main-brand_name {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.main-brand_name:hover{
+    text-decoration: none;
+    color: white;
+}   
+
+.main-nav{
+    width: calc(100% - 80px);
+    display: inline-block;
+    text-align: right;
+    vertical-align: middle;
+}
+
+.main-nav_items{
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav_item{
+    display: inline-block;
+    margin: 0 16px;
+}
+
+.main-nav_item a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 3px 0;
+}
+
+
+.main-nav_item a:hover, 
+.main-nav_item a:active{
+    text-decoration: none;
+    color:white;
+    border-bottom: 2px solid #E53020;
+}
