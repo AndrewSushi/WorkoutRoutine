@@ -41,7 +41,7 @@ def register_user():
         db.session.add(new_user)
         db.session.commit()
         session['user_id'] = new_user.id
-        return redirect('/tweets')
+        return redirect('/form')
 
     return render_template('register.html', form=form)
 
@@ -56,7 +56,7 @@ def login_user():
         if user:
             flash(f"Welcome Back, {user.username}", "success")
             session['user_id'] = user.id
-            return redirect('/tweets')
+            return redirect('/form')
         else:
             form.username.errors = ['Invalid username/password']
 
@@ -79,4 +79,4 @@ def survey():
         answer = bard.get_answer(return_question(goal, days_per_week, time_avaliable, equipment))["content"]
         workout = extract_json_object(answer)
         return render_template('results.html', days=workout["days"], exercises=workout["exercises"], sets=workout["sets"], reps=workout["reps"])
-    return render_template("survey.html", form=form)
+    return render_template("survey.html", form=form, script_src="script.js")
