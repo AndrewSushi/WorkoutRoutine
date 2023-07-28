@@ -30,7 +30,8 @@ class Routine(db.Model):
     __tablename__ = "routines"
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    user_id = db.relationship
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    text = db.Column(db.Text)
 
 def connect_db(app):
     """Connect to database."""

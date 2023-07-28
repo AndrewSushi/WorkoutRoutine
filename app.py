@@ -24,9 +24,6 @@ app.config['SECRET_KEY'] = "WorkSushiOutRoutine"
 def return_question(goal, days, time, equipment):
     return f"Give me a workout plan in the form of a json object that will make me {goal}. I can work out {days} days a week and {time} minutes each workout. I have {equipment}. The format of the json object is days, exercises, sets, and reps. Days will be an arrays of days that will be working out. Exercises will be an array of arrays that is the same length at the days and represent the exercises done each day. Sets and reps correlate to each of the exercises and should be formatted the same way as the exercises. Days, exercises, sets and reps should all be their own key and should be the same size as the exercises key. Thank you."
 
-def parse_response(text):
-    pass
-
 @app.route('/')
 def home():
     return render_template('home.html')
@@ -76,7 +73,22 @@ def survey():
         days_per_week = form.days_per_week.data
         time_avaliable = form.time_avaliable.data
         equipment = form.equipment.data
-        answer = bard.get_answer(return_question(goal, days_per_week, time_avaliable, equipment))["content"]
-        workout = extract_json_object(answer)
+        text = bard.get_answer(return_question(goal, days_per_week, time_avaliable, equipment))["content"]
+        workout = extract_json_object(text)
+        routine = Routine(user_id=session["user_id"], text=text)
+        db.session.add(routine)
+        db.session.commit()
         return render_template('results.html', days=workout["days"], exercises=workout["exercises"], sets=workout["sets"], reps=workout["reps"])
     return render_template("survey.html", form=form, script_src="script.js")
+
+@app.route('/users/<int:user_id>')
+def display_user(user_id):
+    user = User.query.get_or_404(user_id)
+    workouts = Routine.query.filter_by(user_id=user_id).all()
+    return render_template('user.html', user=user, workouts=workouts)
+
+@app.route('/workouts/<int:workout_id>')
+def display_workout(workout_id):
+    workout = Routine.query.get_or_404(workout_id)
+    workout = extract_json_object(workout.text)
+    return render_template('results.html', days=workout["days"], exercises=workout["exercises"], sets=workout["sets"], reps=workout["reps"])

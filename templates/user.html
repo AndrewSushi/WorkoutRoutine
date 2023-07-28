@@ -1,0 +1,4 @@
+<h1 class="heading">{{user.username}}</h1>
+{% for workout in workouts %}
+    <a href="/workouts/{{workout.id}}">{{workout.id}}</a>    
+{% endfor %}
