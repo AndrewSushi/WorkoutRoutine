@@ -43,6 +43,7 @@ def register_user():
             return render_template('register.html', form=form)
 
         session['user_id'] = new_user.id
+        session['username'] = new_user.username
         return redirect('/form')
 
     return render_template('register.html', form=form)
@@ -56,7 +57,6 @@ def login_user():
 
         user = User.authenticate(username, password)
         if user:
-            flash(f"Welcome Back, {user.username}", "success")
             session['user_id'] = user.id
             return redirect('/form')
         else:
@@ -67,7 +67,6 @@ def login_user():
 @app.route('/logout')
 def logout_user():
     session.pop('user_id')
-    flash("Goodbye")
     return redirect('/')
 
 @app.route('/form', methods=['GET', 'POST'])

@@ -9,9 +9,13 @@
   <div class="login-form_box">
     <h1 id="heading">Sign Up</h1>
     <p class="lead">Register below to save your workout routine!</p>
-    {% for mesg in get_flashed_messages() %}
-    <p class="text-danger">{{ mesg }}</p>
-    {% endfor %}
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <p>{{message}}</p>
+        {%endfor%}
+      {%endif%}
+    {%endwith%}
     <form method="POST">
 
       {{ form.hidden_tag() }}
