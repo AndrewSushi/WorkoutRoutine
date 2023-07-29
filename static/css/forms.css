@@ -1,3 +1,9 @@
+.back{
+    height: 100vh; /* 100% of the viewport height */
+    width: 100%; /* 100% of the viewport width */
+    background-color: #1e1e1e; /* Set any background color you like */
+}
+
 .form-container{
     width: 80%;
     position: absolute;
@@ -7,15 +13,23 @@
     padding: 10px;
 }
 
-h1 {
+.heading{
+    color: white;
     text-align: center;
 }
-h2 {
+.heading-2{
+    color: white;
     margin: 0;
 }
+
+.font-normal{
+    color: white;
+}
+
 #multi-step-form-container {
     margin-top: 5rem;
 }
+
 .text-center {
     text-align: center;
 }
@@ -26,26 +40,31 @@ h2 {
 .pl-0 {
     padding-left: 0;
 }
-.button {
-    padding: 0.7rem 1.5rem;
-    border: 1px solid #4361ee;
-    background-color: #4361ee;
-    color: #fff;
+.button, .button-submit {
+    padding: 0.5rem 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    background: #F2E416;
+    width: 120px;
+    text-align: center;
+    text-decoration: none;
+    text-align: center;
     border-radius: 5px;
     cursor: pointer;
 }
-.submit-btn {
-    border: 1px solid #0e9594;
-    background-color: #0e9594;
+.right-button{
+    float: right;
 }
 .mt-3 {
     margin-top: 2rem;
+    color: white;
 }
 .d-none {
     display: none;
 }
 .form-step {
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid #fff;
     border-radius: 20px;
     padding: 3rem;
 }
@@ -107,10 +126,10 @@ ul.form-stepper > li:not(:last-of-type) {
     top: 32%;
 }
 .form-stepper-horizontal li:after {
-    background-color: #dee2e6;
+    background-color: #fff;
 }
 .form-stepper-horizontal li.form-stepper-completed:after {
-    background-color: #4da3ff;
+    background-color: #fff;
 }
 .form-stepper-horizontal li:last-child {
     flex: unset;
@@ -122,36 +141,41 @@ ul.form-stepper li a .form-stepper-circle {
     margin-right: 0;
     line-height: 1.7rem;
     text-align: center;
-    background: rgba(0, 0, 0, 0.38);
+    background: #fff;
     border-radius: 50%;
 }
 .form-stepper .form-stepper-active .form-stepper-circle {
-    background-color: #4361ee !important;
+    background-color: #E53020 !important;
     color: #fff;
 }
 .form-stepper .form-stepper-active .label {
-    color: #4361ee !important;
+    color: #fff !important; /* step active*/
 }
 .form-stepper .form-stepper-active .form-stepper-circle:hover {
-    background-color: #4361ee !important;
+    background-color: #fff !important;
     color: #fff !important;
 }
 .form-stepper .form-stepper-unfinished .form-stepper-circle {
-    background-color: #f8f7ff;
+    background-color: 	#f6f6f6;
 }
 .form-stepper .form-stepper-completed .form-stepper-circle {
-    background-color: #0e9594 !important;
+    background-color:#bf2517 !important; /* Complete circle*/
     color: #fff;
 }
+
+.form-stepper .form-stepper-unfinished .label {
+    color: #fff !important; /* unfinished step*/
+}
+
 .form-stepper .form-stepper-completed .label {
-    color: #0e9594 !important;
+    color: #fff !important; /* after complete step*/
 }
 .form-stepper .form-stepper-completed .form-stepper-circle:hover {
-    background-color: #0e9594 !important;
+    background-color: #1e1e1e !important;
     color: #fff !important;
 }
 .form-stepper .form-stepper-active span.text-muted {
-    color: #fff !important;
+    color: #fff !important; /* selection num color */
 }
 .form-stepper .form-stepper-completed span.text-muted {
     color: #fff !important;
@@ -162,4 +186,9 @@ ul.form-stepper li a .form-stepper-circle {
 }
 .form-stepper a {
     cursor: default;
+}
+
+.form-label{
+    padding-bottom: 8px;
+    margin-bottom: 8px;
 }

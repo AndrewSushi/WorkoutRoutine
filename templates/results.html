@@ -1,16 +1,29 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-<p class="lead">
-    {% for i in range(days|length) %}
-        <h3>{{days[i]}}</h3>
-        <ul>
-        {% for exercise in exercises[i] %}
-            <li>{{exercise}} - {{sets[i]}} x {{reps[i]}}</li>
+<div class="backs">
+    <div class="accordion workoutPanel" id="accordionPanelsStayOpenExample">
+        {% for i in range(days|length) %}
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="heading{{ i }}">
+                <button class="accordion-button button-weekday" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ i }}" aria-expanded="true" aria-controls="collapse{{ i }}">
+                    <span class="button-text">{{ days[i] }}</span>
+                </button>
+            </h2>
+            <div id="collapse{{ i }}" class="accordion-collapse collapse workout">
+                <div class="accordion-body workout">
+                    <ul>
+                        {% for exercise in exercises[i] %}
+                            <li>{{ exercise }} - {{ sets[i] }} x {{ reps[i] }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
         {% endfor %}
-        </ul>
-    {% endfor %}
-</p>
+    </div>
+    
+    <a href="/users/{{session['user_id']}}" id="returnUser">See your workout on your profile page!</a>
+</div>
 
 {% endblock %}

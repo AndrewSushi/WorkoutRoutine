@@ -35,8 +35,13 @@ def register_user():
         username = form.username.data
         password = form.password.data
         new_user = User.register(username, password)
-        db.session.add(new_user)
-        db.session.commit()
+        try:
+            db.session.add(new_user)
+            db.session.commit()
+        except:
+            flash("Username already exists.")
+            return render_template('register.html', form=form)
+
         session['user_id'] = new_user.id
         return redirect('/form')
 
@@ -83,6 +88,14 @@ def survey():
 
 @app.route('/users/<int:user_id>')
 def display_user(user_id):
+    if "user_id" not in session:
+        flash("Sign in to access the user page")
+        return redirect('/')
+    else:
+        if session["user_id"] != user_id:
+            flash("You do not have access to this user page")
+            return redirect('/')
+
     user = User.query.get_or_404(user_id)
     workouts = Routine.query.filter_by(user_id=user_id).all()
     return render_template('user.html', user=user, workouts=workouts)

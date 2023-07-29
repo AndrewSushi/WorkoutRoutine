@@ -1,3 +1,60 @@
-.lead{
-    margin-top: 60px;
+.backs{
+    height: 100vh; /* 100% of the viewport height */
+    width: 100%; /* 100% of the viewport width */
+    background-color: #1e1e1e; /* Set any background color you like */
+}
+
+#accordionPanelsStayOpenExample{
+    margin-top: 10%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+
+#profile-button{
+    margin: 0 auto;
+    text-align: center;
+}
+
+.button-weekday{
+    font-size: 25px;
+    font-weight: bold;
+    color: white !important;
+    background-color: #1e1e1e !important;
+}
+
+.accordion-button:after {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;
+  }
+.workoutPanel{
+    margin-top: 10%;
+    width: 80%;
+    margin: 0 auto;
+    max-height: 600px; /* Set a fixed height for the accordion container */
+    overflow-y: auto; /* Add a vertical scrollbar when content exceeds the height */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+
+.workout ul{
+    list-style: none;
+}
+
+.workout{
+    background-color: #e1e1e1 !important;
+}
+
+#returnUser{
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -90%);
+    padding: 10px;
+}
+
+.button-text:hover{
+    border: 2px solid E53020;
 }

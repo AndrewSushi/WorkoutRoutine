@@ -4,7 +4,11 @@
 <main>
     <section id="main-img">
         <h1 id="slogan">Strengthen your body, strengthen your mind</h1>
-        <a href="/login" id="start-button">Start now!</a>
+        {% if session['user_id'] %}
+            <a href="/form" id="start-button">Start now!</a>
+        {% else %}
+            <a href="/login" id="start-button">Start now!</a>
+        {% endif %}
     </section>
 </main>
 {% endblock %}
