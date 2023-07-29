@@ -1,8 +1,42 @@
-<h1 class="heading">{{user.username}}</h1>
-<ul>
-    {% for workout in workouts %}
-    <li>
-        <a href="/workouts/{{workout.id}}">{{workout.id}}</a>    
-    </li>
-    {% endfor %}
-</ul>
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="main-back">
+    <div class="header">
+        <h1 class="welcome">Welcome, {{user.username}}!</h1>
+        <p class="welcome-info">Below are the workouts you created
+    </div>
+    {% if workouts is defined and workouts|length > 0 %}
+        <table class="table table-hover table-dark workout-table">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Workout ID</th>
+            <th scope="col">Date Created</th>
+            <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for workout in workouts %}
+            <tr>
+                <th scope="row">{{ loop.index }}</th>
+                <td>
+                <a href="/workouts/{{ workout.id }}">{{ workout.id }}</a>
+                </td>
+                <td>{{ workout.date_created }}</td>
+                <td>
+                <a href="/workouts/{{ workout.id }}/delete" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+    {% else %}
+        <p>You haven't created any workouts yet!</p>
+        <p>Click <a href="/form">here</a> to create a workout.</p>
+    {% endif %}
+</div>
+
+
+
+  {% endblock %}

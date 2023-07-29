@@ -104,3 +104,13 @@ def display_workout(workout_id):
     workout = Routine.query.get_or_404(workout_id)
     workout = extract_json_object(workout.text)
     return render_template('results.html', days=workout["days"], exercises=workout["exercises"], sets=workout["sets"], reps=workout["reps"])
+
+@app.route('/workouts/<int:workout_id>/delete')
+def delete_workout(workout_id):
+    workout = Routine.query.get_or_404(workout_id)
+    if session['user_id'] != workout.user_id:
+        flash("Cannot delete workout that is not yours")
+        return redirect(f'/users/{session["user_id"]}')
+    db.session.delete(workout)
+    db.session.commit()
+    return redirect(f'/users/{session["user_id"]}')

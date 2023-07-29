@@ -1,0 +1,17 @@
+.table{
+    width: 80% !important;
+}
+
+.header{
+    padding-top: 80px;
+    height: 190px;
+}
+
+.welcome{
+    text-align: center;
+    color: white;
+}
+
+.welcome-info{
+    text-align: center;
+}
