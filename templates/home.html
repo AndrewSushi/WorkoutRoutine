@@ -1,14 +1,98 @@
 {% extends 'base.html' %}
 {% block content %}
-
-<main>
-    <section id="main-img">
-        <h1 id="slogan">Strengthen your body, strengthen your mind</h1>
+<div class="main-back">
+        <div class="main-container">
+            <div class="main-title">
+                <h1 class="main-title">Our <span class="bold-you">AI-powered</span> workout generator will create a personalized plan for 
+                <span class="bold-you">YOU</span>, based on your fitness goals.</h1>
+                {% if session['user_id'] %}
+                    <a href="/form" id="start-button">Start now!</a>
+                {% else %}
+                    <a href="/login" id="start-button">Start now!</a>
+                {% endif %}
+            </div>
+        </div>
+            
+        </main>
+        <div class="information">
+            <div class="problem-container">
+                <h1 class="problem-headline main-top_margin">Problem</h1>
+                <p class="problem">I want to get in shape, but I don't know where to start. 
+                    I'm not sure what knd of workouts I should do, or how often I should workout...
+                </p>
+            </div>
+            <div class="solution-container">
+                <h1 class="solution-headline">Solution</h2>
+                <p class="solution">You can use an AI fitness program to help you get started. 
+                    An AI fitness program can create a personalized workout plan for you, based 
+                    on your fitness goals, experience level, and other preferences.</p>
+            </div>
+        </div>
+<div class="card-background">
+    <h1 class="benefits">Benefits</h1>
+    <div class="card-group">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="title">Personalized Workouts</h5>
+                <p class="card-text">Our AI-powered workout generator takes into account your fitness goals, 
+                    experience level, and other factors to create a personalized plan that's 
+                    right for you. This means that your workouts will be challenging but not 
+                    overwhelming, and they'll be tailored to your specific needs.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="title">Easy to Use</h5>
+                    <p class="card-text">Our platform is easy to use and navigate. You can create a personalized 
+            workout plan in just a few minutes, and you can track your progress over
+            time. We also offer a variety of resources to help you get started, including 
+            workout videos,</p>
+    </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="title">Free</h5>
+            <p class="card-text">There is no cost to use our service. This means that you can start your fitness 
+                journey today without having to spend any money. We believe that everyone should 
+                have access to quality fitness programming, and we're committed to making our 
+                service available to everyone.</p>
+        </div>
+    </div>
+</div>
+    <div class="cta-background">
         {% if session['user_id'] %}
             <a href="/form" id="start-button">Start now!</a>
         {% else %}
             <a href="/login" id="start-button">Start now!</a>
         {% endif %}
-    </section>
-</main>
+    </div>
+        <footer>   
+            <div class="footer-div">
+                <div class="column links">
+                    <h1 class="footer-heading"> Useful Links</h1>
+                    <ul>
+                        <li>FAQ</li>
+                        <li>Getting Started</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h1 class="footer-heading">Contact Us</h1>
+                    <p id="footer-text">Email: example@gmail.com</p>
+                </div>
+                <div class="column">
+                    <h1 class="footer-heading">About Us</h1>
+                    <p id="footer-text">We are a team of passionate fitness enthusiasts who believe that 
+                        everyone should have access to quality fitness programming. We
+                         created the AI fitness program to help people get started on 
+                         their fitness journey and reach their fitness goals.
+                    </p>
+                </div>
+                
+            </div>     
+                <div class="copyright">
+                    <p>© All rights reserved    2023</p>
+                </div>
+        </footer>
+    </div>   
+</div> 
 {% endblock %}

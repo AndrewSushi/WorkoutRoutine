@@ -15,3 +15,11 @@
 .welcome-info{
     text-align: center;
 }
+
+.non-login-box p{
+   text-align: center;
+}
+
+.logout{
+    text-align: center;
+}

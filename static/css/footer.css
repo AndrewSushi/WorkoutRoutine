@@ -1,0 +1,41 @@
+.footer-div {
+    background-color: #111111;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.column {
+    width: 300px; /* For example, set a fixed width for each column */
+    padding: 10px;
+    display: inline-block;
+    color: white;
+    text-align: center;
+    height: 300px;
+    text-decoration: none;
+    text-align: center;
+    font-weight:light;
+}
+
+.footer-heading{
+    font-size: 28px;
+    margin: 15px 12px;
+}
+
+.footer-heading:hover{
+    border-bottom: 2px solid #E53020;
+}
+
+.copyright{
+    text-align: center;
+    background-color: #111111;
+}
+
+.links ul li{
+    list-style-type: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+#footer-text{
+    font-family: 'Roboto', sans-serif;
+}

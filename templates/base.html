@@ -16,7 +16,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Nunito+Sans:ital@1&display=swap" rel="stylesheet">
-  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    
 </head>
 <body>
   <header class="main-header">
@@ -28,12 +31,9 @@
     <nav class="main-nav">
         <ul class="main-nav_items">
             <li class="main-nav_item">
-                <a href="404.html">Plans</a>
+                <a href="/form">Create Workout</a>
             </li>
             {% if session['user_id'] %}
-                <li class="main-nav_item">
-                <a href="/logout">Logout</a>
-                </li>
                 <li class="main-nav_item">
                 <a href="/users/{{session['user_id']}}">Profile</a>
                 </li>

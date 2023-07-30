@@ -58,3 +58,7 @@
 .button-text:hover{
     border: 2px solid E53020;
 }
+
+.button-text{
+    margin-left: 0px;
+}

@@ -18,6 +18,7 @@
     text-align: center;
 }
 .heading-2{
+    text-align: center;
     color: white;
     margin: 0;
 }
@@ -152,9 +153,10 @@ ul.form-stepper li a .form-stepper-circle {
     color: #fff !important; /* step active*/
 }
 .form-stepper .form-stepper-active .form-stepper-circle:hover {
-    background-color: #fff !important;
+    background-color: #ac2115 !important;
     color: #fff !important;
 }
+
 .form-stepper .form-stepper-unfinished .form-stepper-circle {
     background-color: 	#f6f6f6;
 }

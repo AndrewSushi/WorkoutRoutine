@@ -15,6 +15,7 @@ main{
 
 .information{
     background-color:#1e1e1e;
+    width: 100%;
 }
 #start-button {
     font-family: 'Montserrat', sans-serif;
@@ -125,8 +126,12 @@ main{
 
 .card-body{
     background-color: #1e1e1e;
-
 }
+.card-background{
+    width: 100%; 
+    background-color: #1e1e1e;
+}
+
 .benefits{
     display: block;
     font-weight: bold;
