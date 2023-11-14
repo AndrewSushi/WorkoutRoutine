@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask, render_template, redirect, session, flash, jsonify
 from flask_debugtoolbar import DebugToolbarExtension
 from sushiKey import API_SECRET_KEY
@@ -12,7 +14,7 @@ bard = Bard(token=API_SECRET_KEY)
 
 app = Flask(__name__)
 app.app_context().push()
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///workout_routine_db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
 
