@@ -1,5 +1,5 @@
 bardapi==0.1.23a0
-Flask==2.3.2
+Flask==2.0.1
 Flask_Bcrypt==1.0.1
 Flask_DebugToolbar==0.13.1
 flask_sqlalchemy==3.1.1
