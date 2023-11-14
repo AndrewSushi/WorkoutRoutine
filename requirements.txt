@@ -5,3 +5,4 @@ Flask_DebugToolbar==0.13.1
 flask_sqlalchemy==3.0.3
 Flask_WTF==1.1.1
 WTForms==3.0.1
+psycopg2-binary==2.9.6
