@@ -2,7 +2,6 @@ import os
 
 from flask import Flask, render_template, redirect, session, flash, jsonify
 from flask_debugtoolbar import DebugToolbarExtension
-from sushiKey import API_SECRET_KEY
 from workout_regex import extract_json_object
 
 from models import db, connect_db, User, Routine
@@ -10,7 +9,7 @@ from forms import UserForm, WorkoutForm
 from bardapi import Bard
 
 
-bard = Bard(token=API_SECRET_KEY)
+bard = Bard(token=os.environ.get("API_SECRET_KEY"))
 
 app = Flask(__name__)
 app.app_context().push()
